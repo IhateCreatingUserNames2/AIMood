@@ -1,0 +1,88 @@
+import requests
+import json
+
+# Ollama API details
+OLLAMA_API_URL = "http://localhost:11434/api/generate"
+MODEL_NAME = "llama3"
+
+
+def query_llama(prompt):
+    headers = {
+        "Content-Type": "application/json"
+    }
+    data = {
+        "model": MODEL_NAME,
+        "prompt": prompt,
+        "max_length": 500,  # Adjust based on your token limit
+        "temperature": 0.7  # Adjust as needed for variability
+    }
+
+    response = requests.post(OLLAMA_API_URL, headers=headers, data=json.dumps(data), stream=True)
+    full_response = ""
+    for line in response.iter_lines(decode_unicode=True):
+        if line:
+            try:
+                json_line = json.loads(line)
+                if 'response' in json_line:
+                    full_response += json_line['response']
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON from line: {line}")
+                continue
+    return full_response
+
+
+# Layer 1: Personality and Environment
+def layer_1(personality_traits, background_story):
+    prompt = f"""
+    Você nasceu com esses traços de personalidade: {personality_traits}.
+    Cresceu em um ambiente: {background_story}.
+    Agindo como tal pessoa, descreva o EGO e o Superego dessa pessoa.
+    """
+    return query_llama(prompt)
+
+
+# Layer 2: Personality, Environment, Ego, Superego, and Memories
+def layer_2(personality_traits, background_story, ego, superego, memories):
+    prompt = f"""
+    Você nasceu com esses traços de personalidade: {personality_traits}.
+    Cresceu em um ambiente: {background_story}.
+    Que gerou o Ego: {ego} e o Superego: {superego}.
+    Essas são suas memórias: {memories}.
+    Agindo como tal pessoa, descreva o Subconsciente de tal pessoa.
+    """
+    return query_llama(prompt)
+
+
+# Layer 3: Final Response Based on Subconscious and Post
+def layer_3(subconscious_output, post_content):
+    prompt = f"""
+   Aja como se você tivesse o subconsciente: {subconscious_output},
+    o que você acha sobre o post: "{post_content}"?
+    """
+    return query_llama(prompt)
+
+
+# Main function to simulate the multi-layered response method
+def simulate_layers(personality_traits, background_story, memories, post_content):
+    # Layer 1: Ego and Superego based on Personality and Background
+    ego_superego_output = layer_1(personality_traits, background_story)
+    print(f"Layer 1 - Ego and Superego Output: {ego_superego_output}\n")
+
+    # Layer 2: Subconscious based on Ego, Superego, Memories
+    subconscious_output = layer_2(personality_traits, background_story, ego_superego_output, ego_superego_output,
+                                  memories)
+    print(f"Layer 2 - Subconscious Output: {subconscious_output}\n")
+
+    # Layer 3: Final opinion based on Subconscious and Post
+    final_output = layer_3(subconscious_output, post_content)
+    print(f"Layer 3 - Final Opinion Output: {final_output}\n")
+
+
+# Example Inputs
+personality_traits = "Narcissism, High Confidence, Low Empathy, Assertiveness"
+background_story = "You grew up in a competitive family where vulnerability was punished, and success was the only measure of worth."
+memories = "You were praised for leadership but criticized for showing emotions."
+post_content = "What do you think about smoking?"
+
+# Run the simulation
+simulate_layers(personality_traits, background_story, memories, post_content)
