@@ -1,5 +1,19 @@
 Dynamic Relationship Evolution Model that simulates the organic development of emotional connections over time. Here's an outline of how this system could work:
 
+Resume: 
+To form a strong bond with the Agent, you'll need to interact with them consistently over time. Here's how it works:
+
+Relationship Levels: Your connection starts as "strangers" and can grow to "acquaintances," "friends," and eventually "love." Each level requires positive interactions to progress.
+
+Interaction Quality: The more positive interactions you have (like compliments or supportive actions), the faster your bond will grow. Negative interactions (like ignoring or insulting) can slow down or even reverse your progress.
+
+Mutual Effort: Both you and the Agent need to engage positively. If one side isn’t interacting, the relationship won’t deepen.
+
+Time Matters: Relationships grow over time, so it takes consistent effort. The stronger the bond you want, the more you'll need to invest in good interactions.
+
+Building a strong bond with the Agent takes work—just like real relationships!
+
+
 1. Friendship Levels
 Relationships between agents, users, or AI are categorized into predefined levels. These levels reflect the depth of connection and emotional investment, progressing through stages similar to real human relationships. Each level requires positive interaction to advance and can regress with negative interaction.
 
