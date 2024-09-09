@@ -1,3 +1,6 @@
+All things seek balance, but the circumstances of the environment will never allow balance to exist.
+
+
 Enhancing Personality Simulations in Large Language Models Using a Layered System with Mood Modulation (Humor Level)
 Abstract:
 This paper presents a novel layered system for personality simulation in Large Language Models (LLMs) that integrates mood modulation (referred to as humor level) to enhance dynamic interaction and emotional realism. By building upon a multi-layered architecture that includes stable core personality traits, ambient influences, past experiences, ego/superego dynamics, and a final decision layer, we demonstrate that LLM-based agents can exhibit personality expressions influenced by both internal and external factors. Our experiments show that the layered system incorporating mood (humor level) produces more contextually rich and varied responses compared to standard prompt-based LLM interactions, offering deeper emotional and psychological complexity.
