@@ -1,0 +1,4 @@
+personality vectors, emotion embeddings, or memory layers
+attention mechanisms, hidden layers, and embeddings
+self-attention, layer normalization, or positional encodings  
+  
