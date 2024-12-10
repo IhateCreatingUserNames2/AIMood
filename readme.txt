@@ -5,6 +5,9 @@ New approach: Slow Thought Process
 
 Multiple Layers of Behaviour, each one weighting one parameter of the personality spectrum 
 
+Use LangGraph -> Initial State -> Personality Layer -> Actions Based on Personality Output -> Ask Personality Layer 2 to Take Decision -> Actions Based on Personalitu layer 2 -> Execute Action 
+    Use Humor Level In 
+
 
 
 Enhancing Personality Simulations in Large Language Models Using a Layered System with Mood Modulation (Humor Level)
